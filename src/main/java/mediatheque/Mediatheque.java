@@ -17,17 +17,15 @@ public class Mediatheque {
 	}
 	
 	public void printOnlyBooks() {
-		throw new UnsupportedOperationException("Not supported yet."); 
-		/*
-		//avec instanceof
-		for (Item i : items)
-			if (i instanceof Book)
-				System.out.println(i);
-		*/
+		BookVisitor bookVisitor = new BookVisitor();
+		for (Item item : items)
+			item.accept(bookVisitor);
 	}
 
 	public void printOnlyCDs() {
-		throw new UnsupportedOperationException("Not supported yet."); 
+		CDVisitor cdVisitor = new CDVisitor();
+		for (Item item : items)
+			item.accept(cdVisitor);
 	}
 
 }
